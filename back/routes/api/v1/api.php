@@ -14,6 +14,13 @@ Route::group(['middleware' => 'api'], function () {
         Route::group(['namespace' => 'Auth'], function () {
             Route::post('/me', ['uses' => 'AuthController@me']);
         });
+
+        Route::group(['namespace' => 'System'], function () {
+            Route::get('/roles', ['uses' => 'SystemController@getRoles']);
+            Route::get('/users/by-role/{id}', ['uses' => 'UserController@getUsersByRole']);
+            Route::get('/users/by-email/{email}', ['uses' => 'UserController@getUserByEmail']);
+            Route::post('/users', ['uses' => 'UserController@createUser']);
+        });
     });
 
 });

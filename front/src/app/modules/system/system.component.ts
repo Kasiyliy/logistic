@@ -37,6 +37,10 @@ export class SystemComponent implements OnInit {
           link: '/',
           name: 'Панель управления'
         },
+        {
+          link: '/users',
+          name: 'Пользователи'
+        },
       ];
     } else if (this.roleService.isDriver(this.user.role_id)) {
       this.routes = [
