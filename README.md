@@ -1,3 +1,3 @@
 ### Author: Kasya
 ### Boilerplate 
-### Angular + PHP Laravel 
+### Angular + PHP Laravel
