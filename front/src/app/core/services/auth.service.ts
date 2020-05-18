@@ -51,11 +51,11 @@ export class AuthService {
   }
 
   public isStudent() {
-    return this.roleService.isStudent(this.getRole());
+    return this.roleService.isDriver(this.getRole());
   }
 
   public isTeacher() {
-    return this.roleService.isTeacher(this.getRole());
+    return this.roleService.isManager(this.getRole());
   }
 
   public checkAvailability(): boolean {

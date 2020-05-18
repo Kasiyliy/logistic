@@ -37,43 +37,19 @@ export class SystemComponent implements OnInit {
           link: '/',
           name: 'Панель управления'
         },
-        {
-          link: '/courses',
-          name: 'Курсы'
-        },
-        {
-          link: '/users',
-          name: 'Пользователи'
-        },
-        {
-          link: '/teams',
-          name: 'Команды'
-        },
       ];
-    } else if (this.roleService.isStudent(this.user.role_id)) {
+    } else if (this.roleService.isDriver(this.user.role_id)) {
       this.routes = [
         {
           link: '/',
           name: 'Панель управления'
         },
-        {
-          link: '/my-courses',
-          name: 'Мои курсы'
-        },
       ];
-    } else if (this.roleService.isTeacher(this.user.role_id)) {
+    } else if (this.roleService.isManager(this.user.role_id)) {
       this.routes = [
         {
           link: '/',
           name: 'Панель управления'
-        },
-        {
-          link: '/courses',
-          name: 'Курсы'
-        },
-        {
-          link: '/teams',
-          name: 'Команды'
         },
       ];
     }

@@ -22,12 +22,12 @@ export class RoleService {
     return roleId == Role.ROLE_ADMIN;
   }
 
-  public isTeacher(roleId) {
-    return roleId == Role.ROLE_TEACHER;
+  public isManager(roleId) {
+    return roleId == Role.ROLE_MANAGER;
   }
 
-  public isStudent(roleId) {
-    return roleId == Role.ROLE_STUDENT;
+  public isDriver(roleId) {
+    return roleId == Role.ROLE_DRIVER;
   }
 
 }
