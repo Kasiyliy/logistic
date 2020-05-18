@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header" *ngIf="chapter">
+    <p class="card-title">{{chapter.name}}</p>
+  </div>
+
+  <div class="card-body">
+    <div *ngFor="let lesson of lessons">
+      <h4>{{lesson.name}}</h4>
+      <p class="text-muted" *ngIf="lesson.lesson_type">{{lesson.lesson_type?.name}}</p>
+      <p [innerHTML]="lesson.content">
+      </p>
+      <div class="text-right">
+        <a [routerLink]="'edit/' + lesson.id">
+          <span class="fa fa-edit"></span>
+        </a>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Команды</h1>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">
+
+            <div *ngIf="this.router.url != '/teams'; else elseBlock">
+              <a routerLink="/teams" class="btn btn-primary btn-circle m-1">
+                <i class="fas fa-arrow-left"></i>
+              </a>
+            </div>
+            <ng-template #elseBlock>
+              <a routerLink="/teams/add" class="btn btn-primary btn-circle m-1">
+                <i class="fas fa-plus"></i>
+              </a>
+            </ng-template>
+          </h6>
+        </div>
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

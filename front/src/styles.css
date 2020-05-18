@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+.full-height {
+  min-height: 100vh;
+}
+
+.ck-editor__editable:not(.ck-editor__nested-editable) {
+  min-height: 300px;
+}
+
+body{
+  color:#000000;
+}
+
+.table{
+  color:#000000;
+}

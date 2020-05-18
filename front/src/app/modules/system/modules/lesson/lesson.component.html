@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="'/courses'">Курсы</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="'/chapters/' + chapter?.course_id">Главы</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Уроки</li>
+    </ol>
+  </nav>
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Уроки</h1>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">
+            <div *ngIf="this.router.url != '/lessons/' + chapterId; else elseBlock">
+              <a [routerLink]="'/lessons/' + chapterId" class="btn btn-primary btn-circle m-1">
+                <i class="fas fa-arrow-left"></i>
+              </a>
+            </div>
+            <ng-template #elseBlock>
+              <a [routerLink]="'/lessons/' + chapterId + '/add'" class="btn btn-primary btn-circle m-1">
+                <i class="fas fa-plus"></i>
+              </a>
+            </ng-template>
+          </h6>
+        </div>
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
