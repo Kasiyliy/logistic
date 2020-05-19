@@ -56,12 +56,28 @@ export class SystemComponent implements OnInit {
                     link: '/',
                     name: 'Панель управления'
                 },
+                {
+                    link: '/freights',
+                    name: 'Грузоперевозка'
+                },
             ];
         } else if (this.roleService.isManager(this.user.role_id)) {
             this.routes = [
                 {
                     link: '/',
                     name: 'Панель управления'
+                },
+                {
+                    link: '/freights',
+                    name: 'Грузоперевозка'
+                },
+                {
+                    link: '/users',
+                    name: 'Пользователи'
+                },
+                {
+                    link: '/places',
+                    name: 'Точки отправления и получения'
                 },
             ];
         }

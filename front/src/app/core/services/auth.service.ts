@@ -50,12 +50,12 @@ export class AuthService {
     return this.roleService.isAdmin(this.getRole());
   }
 
-  public isStudent() {
-    return this.roleService.isDriver(this.getRole());
+  public isManager() {
+    return this.roleService.isManager(this.getRole());
   }
 
-  public isTeacher() {
-    return this.roleService.isManager(this.getRole());
+  public isDriver() {
+    return this.roleService.isDriver(this.getRole());
   }
 
   public checkAvailability(): boolean {

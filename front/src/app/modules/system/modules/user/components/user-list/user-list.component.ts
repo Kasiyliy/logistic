@@ -6,6 +6,7 @@ import {UserService} from "../../../../../../core/services/user.service";
 import {debounceTime, distinctUntilChanged, filter, mergeMap} from "rxjs/operators";
 import {User} from "../../../../../../core/models/entities/user";
 import {ToastrService} from "ngx-toastr";
+import {AuthService} from "../../../../../../core/services/auth.service";
 
 @Component({
     selector: 'app-user-list',
@@ -21,7 +22,7 @@ export class UserListComponent implements OnInit {
     isFormValid = false;
     users: User[] = [];
 
-    constructor(private roleService: RoleService,
+    constructor(public roleService: RoleService,
                 private userService: UserService,
                 private toastrService: ToastrService,
                 private builder: FormBuilder) {

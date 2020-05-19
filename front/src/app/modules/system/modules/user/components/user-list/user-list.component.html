@@ -55,6 +55,11 @@
                                         </td>
                                         <td>
                                             {{user.role.name}}
+
+                                            <a *ngIf="roleService.isDriver(user.role_id)"
+                                               [routerLink]="'/freights/user/freights/' + user.id">
+                                                Перейти к его перевозкам
+                                            </a>
                                         </td>
                                     </tr>
                                     </tbody>

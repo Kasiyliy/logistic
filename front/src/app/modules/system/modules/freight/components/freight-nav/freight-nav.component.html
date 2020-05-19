@@ -1,0 +1,13 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Активность</h6>
+    </div>
+    <div class="card-body">
+        <a routerLink="create-freight" class="btn btn-google btn-block" *ngIf="!authService.isDriver()">
+            <i class="fa fa-truck-moving"></i> Инициировать грузоперевозку</a>
+        <a routerLink="list-freight" class="btn btn-facebook btn-block" *ngIf="!authService.isDriver()">
+            <i class="fa fa-truck-moving"></i> Показать все грузоперевозки</a>
+        <a routerLink="my-freight" class="btn btn-facebook btn-block" *ngIf="authService.isDriver()">
+            <i class="fa fa-truck-moving"></i> Показать мои грузоперевозки</a>
+    </div>
+</div>

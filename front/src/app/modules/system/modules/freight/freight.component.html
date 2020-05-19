@@ -5,17 +5,7 @@
         <h1 class="h3 mb-0 text-gray-800">Грузоперевозка</h1>
     </div>
     <div class="container-fluid">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Активность</h6>
-            </div>
-            <div class="card-body">
-                <a routerLink="create-freight" class="btn btn-google btn-block">
-                    <i class="fa fa-truck-moving"></i> Инициировать грузоперевозку</a>
-                <a routerLink="list-freight" class="btn btn-facebook btn-block">
-                    <i class="fa fa-truck-moving"></i> Показать все грузоперевозки</a>
-            </div>
-        </div>
+        <app-freight-nav></app-freight-nav>
         <router-outlet></router-outlet>
     </div>
 </div>
