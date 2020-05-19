@@ -88,6 +88,27 @@ export class AddFreightComponent implements OnInit {
                 this.route.lng2 = perf.lng;
                 this.putLine(this.route);
             });
+
+        this.addFreightOrderFormGroup.get('priceForDistance').valueChanges
+            .subscribe(perf => {
+                let distance = this.addFreightOrderFormGroup.get('distance').value;
+                if (distance && perf) {
+                    this.calcPrice(+distance, +perf);
+                }
+            });
+        this.addFreightOrderFormGroup.get('distance').valueChanges
+            .subscribe(perf => {
+                let distance = this.addFreightOrderFormGroup.get('priceForDistance').value;
+                if (distance && perf) {
+                    this.calcPrice(+distance, +perf);
+                }
+            });
+    }
+
+    public calcPrice(distance, priceForDistance) {
+        this.addFreightOrderFormGroup.patchValue({
+            price: distance * priceForDistance
+        });
     }
 
     public loadData() {
@@ -188,7 +209,16 @@ export class AddFreightComponent implements OnInit {
                 'line-width': 8
             }
         });
-
+        const distance = this.locationService.calcCrow(route.lat1, route.lng1, route.lat2, route.lng2);
+        this.addFreightOrderFormGroup.patchValue({
+            distance: distance
+        });
     }
 
+    addFreightOrder() {
+        const freightOrder = this.addFreightOrderFormGroup.getRawValue() as any;
+        freightOrder.initialPlaceId = freightOrder.initialPlace.id;
+        freightOrder.terminationPlaceId = freightOrder.terminationPlace.id;
+        console.log(freightOrder);
+    }
 }

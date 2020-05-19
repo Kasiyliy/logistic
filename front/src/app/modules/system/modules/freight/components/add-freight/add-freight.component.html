@@ -47,6 +47,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Дистанция в км</label>
+                                <input formControlName="distance" readonly type="number" class="form-control">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,20 +143,21 @@
                         <label>Плата за км водителю</label>
                         <input type="number"
                                formControlName="priceForDistance"
-                               placeholder="Плата водителю"
+                               placeholder="Плата за км водителю"
                                class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Общая стоимость перевозки</label>
                         <input type="number"
                                formControlName="price"
-                               placeholder="Плата водителю"
+                               placeholder="Общая стоимость перевозки"
                                class="form-control">
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-group">
                         <button [disabled]="!addFreightOrderFormGroup.valid"
+                                (click)="addFreightOrder()"
                                 class="btn btn-block btn-success text-white">
                             Завершить
                         </button>
