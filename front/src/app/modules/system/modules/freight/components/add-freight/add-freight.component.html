@@ -1,0 +1,159 @@
+<form [formGroup]="addFreightOrderFormGroup">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Создать заказ</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="map" id="map" class="match-parent"></div>
+                    <div id="distance" class="distance-container"></div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Точка отправления</label>
+                                <select formControlName="initialPlace"
+                                        class="form-control">
+                                    <option *ngFor="let place of places" [ngValue]="place">
+                                        {{place.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Дата отправления</label>
+                                <input formControlName="startDate" type="datetime-local" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Точка доставки</label>
+                                <select formControlName="terminationPlace" class="form-control">
+                                    <option *ngFor="let place of places" [ngValue]="place">
+                                        {{place.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Дата доставки</label>
+                                <input formControlName="finishDate" type="datetime-local" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Описание груза</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Вес</label>
+                        <input formControlName="weight" type="number" class="form-control" placeholder="Вес">
+                    </div>
+                    <div class="form-group">
+                        <label>Высота</label>
+                        <input formControlName="height" type="number" class="form-control" placeholder="Высота">
+                    </div>
+                    <div class="form-group">
+                        <label>Ширина</label>
+                        <input formControlName="width" type="number" class="form-control" placeholder="Ширина">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Описание</label>
+                        <textarea formControlName="description" class="form-control" rows="8"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Выбор водителя и специфика транспорта</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Водитель</label>
+                        <select formControlName="driverId"
+                                class="form-control">
+                            <option *ngFor="let driver of drivers"
+                                    [value]="driver.id">
+                                {{driver.name}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Тип транспорта</label>
+                        <select formControlName="carTypeId"
+                                class="form-control">
+                            <option *ngFor="let carType of carTypes"
+                                    [value]="carType.id">
+                                {{carType.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Контактная информация</label>
+                        <textarea formControlName="contactInformation" class="form-control" rows="8"></textarea>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label>Дополнительные требования транспорту</label>
+                        <textarea formControlName="carSpecific" class="form-control" rows="8"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Денежные показатели</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label>Плата за км водителю</label>
+                        <input type="number"
+                               formControlName="priceForDistance"
+                               placeholder="Плата водителю"
+                               class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Общая стоимость перевозки</label>
+                        <input type="number"
+                               formControlName="price"
+                               placeholder="Плата водителю"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <button [disabled]="!addFreightOrderFormGroup.valid"
+                                class="btn btn-block btn-success text-white">
+                            Завершить
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

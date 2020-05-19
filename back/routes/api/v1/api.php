@@ -17,9 +17,13 @@ Route::group(['middleware' => 'api'], function () {
 
         Route::group(['namespace' => 'System'], function () {
             Route::get('/roles', ['uses' => 'SystemController@getRoles']);
+            Route::get('/car-types', ['uses' => 'SystemController@getCarTypes']);
             Route::get('/users/by-role/{id}', ['uses' => 'UserController@getUsersByRole']);
             Route::get('/users/by-email/{email}', ['uses' => 'UserController@getUserByEmail']);
             Route::post('/users', ['uses' => 'UserController@createUser']);
+
+            Route::post('/places', ['uses' => 'PlaceController@createPlace']);
+            Route::get('/places', ['uses' => 'PlaceController@getPlaces']);
         });
     });
 
