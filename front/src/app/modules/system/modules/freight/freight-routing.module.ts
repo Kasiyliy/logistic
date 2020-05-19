@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {FreightComponent} from "./freight.component";
 import {AddFreightComponent} from "./components/add-freight/add-freight.component";
+import {ListFreightComponent} from "./components/list-freight/list-freight.component";
 
 
 const routes: Routes = [
@@ -12,7 +13,11 @@ const routes: Routes = [
             {
                 path: 'create-freight',
                 component: AddFreightComponent
-            }
+            },
+            {
+                path: 'list-freight',
+                component: ListFreightComponent
+            },
         ]
     }
 ];

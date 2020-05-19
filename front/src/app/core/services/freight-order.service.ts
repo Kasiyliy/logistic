@@ -3,6 +3,7 @@ import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Place} from "../models/entities/place";
+import {RealFreightOrder} from "../models/entities/real-freight-order";
 
 @Injectable({
     providedIn: "root"
@@ -14,8 +15,16 @@ export class FreightOrderService {
     constructor(private http: HttpClient) {
     }
 
-    public getMyFreightOrders(): Observable<Place[]> {
-        return this.http.get<Place[]>(`${this.apiUrl}/v1/freight-orders`);
+    public getMyFreightOrders(): Observable<RealFreightOrder[]> {
+        return this.http.get<RealFreightOrder[]>(`${this.apiUrl}/v1/freight-orders/my`);
+    }
+
+    public getAllFreightOrders(): Observable<RealFreightOrder[]> {
+        return this.http.get<RealFreightOrder[]>(`${this.apiUrl}/v1/freight-orders`);
+    }
+
+    public getAllFreightOrders(id: number): Observable<RealFreightOrder[]> {
+        return this.http.get<RealFreightOrder[]>(`${this.apiUrl}/v1/freight-orders/by-users/${id}`);
     }
 
     public createFreightOrder(freightOrder): Observable<any> {

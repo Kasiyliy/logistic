@@ -26,7 +26,9 @@ Route::group(['middleware' => 'api'], function () {
             Route::get('/places', ['uses' => 'PlaceController@getPlaces']);
 
             Route::post('/freight-orders', ['uses' => 'FreightController@createFreightOrder']);
-            Route::get('/freight-orders/my', ['uses' => 'FreightController@getFreightOrders']);
+            Route::get('/freight-orders/my', ['uses' => 'FreightController@getMyFreightOrders']);
+            Route::get('/freight-orders', ['uses' => 'FreightController@getAllFreightOrders']);
+            Route::get('/freight-orders/by-users/{id}', ['uses' => 'FreightController@getUserFreightOrders']);
         });
     });
 

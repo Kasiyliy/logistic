@@ -24,9 +24,22 @@ class FreightController extends ApiBaseController
         return $freightOrder;
     }
 
-    public function getFreightOrders()
+    public function getMyFreightOrders()
     {
         return FreightOrder::with(['driver', 'carType', 'initialPlace', 'terminationPlace'])
             ->where('driver_user_id', auth()->id)->get();
+    }
+
+    public function getAllFreightOrders()
+    {
+        return FreightOrder::with(['driver', 'carType', 'initialPlace', 'terminationPlace'])
+            ->get();
+    }
+
+    public function getUserFreightOrders($id)
+    {
+        return FreightOrder::with(['driver', 'carType', 'initialPlace', 'terminationPlace'])
+            ->where('driver_user_id', $id)
+            ->get();
     }
 }
