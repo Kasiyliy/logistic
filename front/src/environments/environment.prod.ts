@@ -1,5 +1,5 @@
 export const environment = {
-    apiUrl: 'http://127.0.0.1:8000/api',
+    apiUrl: 'http://194.87.98.64/api',
     tokenPrefix: 'Bearer ',
     apiToken: 'apiToken',
     production: true,
