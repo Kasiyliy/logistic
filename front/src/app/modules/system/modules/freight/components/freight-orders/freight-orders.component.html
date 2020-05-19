@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-12">
+        <div *ngFor="let freightOrder of freightOrders" class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Заказ #{{freightOrder.id}}</h6>
+            </div>
+            <div class="card-body">
+                <p>
+                    Дата выезда: {{freightOrder.start_date | date}}
+                </p>
+                <p>
+                    Дата прибытия: {{freightOrder.finish_date | date}}
+                </p>
+                <p>
+                    Место выезда: {{freightOrder.initial_place.name}}
+                </p>
+                <p>
+                    Место прибытия: {{freightOrder.termination_place.name}}
+                </p>
+                <p>
+                    Водитель: {{freightOrder.driver.name}}
+                </p>
+                <p>
+                    Номер телефона водителя: {{freightOrder.driver.phone}}
+                </p>
+                <p>
+                    Дистанция: {{freightOrder.distance}}
+                </p>
+                <p>
+                    Описание груза: {{freightOrder.description}}
+                </p>
+                <p>
+                    Вес груза: {{freightOrder.weight}}
+                </p>
+                <p>
+                    Высота груза: {{freightOrder.height}}
+                </p>
+                <p>
+                    Высота ширина: {{freightOrder.width}}
+                </p>
+                <p>
+                    Контактная информация: {{freightOrder.contact_information}}
+                </p>
+                <p>
+                    Тип транспорта: {{freightOrder.car_type.name}}
+                </p>
+                <p>
+                    Особенности транспорта: {{freightOrder.car_specific}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

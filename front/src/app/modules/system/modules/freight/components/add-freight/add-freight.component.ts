@@ -75,7 +75,7 @@ export class AddFreightComponent implements OnInit {
             carSpecific: [null, [Validators.required]],
         });
 
-        this.addFreightOrderFormGroup.get('initialPlace').valueChanges
+        this.addFreightOrderFormGroup.get('initial_place').valueChanges
             .subscribe(perf => {
                 this.initialMarker = this.putMarker(perf.lng, perf.lat, this.initialMarker);
                 this.route.lat1 = perf.lat;
@@ -83,7 +83,7 @@ export class AddFreightComponent implements OnInit {
                 this.putLine(this.route);
             });
 
-        this.addFreightOrderFormGroup.get('terminationPlace').valueChanges
+        this.addFreightOrderFormGroup.get('termination_place').valueChanges
             .subscribe(perf => {
                 this.terminationMarker = this.putMarker(perf.lng, perf.lat, this.terminationMarker);
                 this.route.lat2 = perf.lat;
@@ -219,8 +219,8 @@ export class AddFreightComponent implements OnInit {
 
     addFreightOrder() {
         const freightOrder = this.addFreightOrderFormGroup.getRawValue() as any;
-        freightOrder.initial_place_id = freightOrder.initialPlace.id;
-        freightOrder.termination_place_id = freightOrder.terminationPlace.id;
+        freightOrder.initial_place_id = freightOrder.initial_place.id;
+        freightOrder.termination_place_id = freightOrder.termination_place.id;
         freightOrder.start_date = freightOrder.startDate;
         freightOrder.finish_date = freightOrder.finishDate;
         freightOrder.price_for_distance = freightOrder.priceForDistance;

@@ -23,7 +23,7 @@ export class FreightOrderService {
         return this.http.get<RealFreightOrder[]>(`${this.apiUrl}/v1/freight-orders`);
     }
 
-    public getAllFreightOrders(id: number): Observable<RealFreightOrder[]> {
+    public getAllByUserFreightOrders(id: number): Observable<RealFreightOrder[]> {
         return this.http.get<RealFreightOrder[]>(`${this.apiUrl}/v1/freight-orders/by-users/${id}`);
     }
 

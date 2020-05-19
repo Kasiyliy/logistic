@@ -5,10 +5,10 @@ import {CarType} from "./car-type";
 export class RealFreightOrder {
     public id: number;
     public initial_place_id: number;
-    public initialPlace: Place;
+    public initial_place: Place;
     public start_date: string;
-    public startPlace: Place;
     public termination_place_id: number;
+    public termination_place: Place;
     public finish_date: string;
     public distance: number;
     public height: number;
@@ -23,7 +23,7 @@ export class RealFreightOrder {
     public driver_user_id: number;
     public driver: User;
     public car_type_id: number;
-    public carType: CarType;
+    public car_type: CarType;
     public created_at: string;
     public updated_at: string;
 }
