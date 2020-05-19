@@ -7,19 +7,19 @@ import {Place} from "../models/entities/place";
 @Injectable({
     providedIn: "root"
 })
-export class PlaceService {
+export class FreightOrderService {
 
     private apiUrl = environment.apiUrl;
 
     constructor(private http: HttpClient) {
     }
 
-    public getPlaces(): Observable<Place[]> {
-        return this.http.get<Place[]>(`${this.apiUrl}/v1/places`);
+    public getMyFreightOrders(): Observable<Place[]> {
+        return this.http.get<Place[]>(`${this.apiUrl}/v1/freight-orders`);
     }
 
-    public createPlace(place: Place): Observable<Place> {
-        return this.http.post<Place>(`${this.apiUrl}/v1/places`, place);
+    public createFreightOrder(freightOrder): Observable<any> {
+        return this.http.post<Place>(`${this.apiUrl}/v1/freight-orders`, freightOrder);
     }
 
 

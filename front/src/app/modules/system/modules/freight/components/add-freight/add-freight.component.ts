@@ -12,6 +12,7 @@ import {User} from "../../../../../../core/models/entities/user";
 import {UserService} from "../../../../../../core/services/user.service";
 import {Role} from "../../../../../../core/models/entities/role";
 import {LocationService} from "../../../../../../core/services/location.service";
+import {FreightOrderService} from "../../../../../../core/services/freight-order.service";
 
 export class Route {
     public lng1: number;
@@ -45,6 +46,7 @@ export class AddFreightComponent implements OnInit {
                 private carTypeService: CarTypeService,
                 private locationService: LocationService,
                 private userService: UserService,
+                private freightOrderService: FreightOrderService,
                 private builder: FormBuilder) {
     }
 
@@ -217,8 +219,21 @@ export class AddFreightComponent implements OnInit {
 
     addFreightOrder() {
         const freightOrder = this.addFreightOrderFormGroup.getRawValue() as any;
-        freightOrder.initialPlaceId = freightOrder.initialPlace.id;
-        freightOrder.terminationPlaceId = freightOrder.terminationPlace.id;
-        console.log(freightOrder);
+        freightOrder.initial_place_id = freightOrder.initialPlace.id;
+        freightOrder.termination_place_id = freightOrder.terminationPlace.id;
+        freightOrder.start_date = freightOrder.startDate;
+        freightOrder.finish_date = freightOrder.finishDate;
+        freightOrder.price_for_distance = freightOrder.priceForDistance;
+        freightOrder.contact_information = freightOrder.contactInformation;
+        freightOrder.car_specific = freightOrder.carSpecific;
+        freightOrder.driver_user_id = freightOrder.driverId;
+        freightOrder.car_type_id = freightOrder.carTypeId;
+        this.freightOrderService.createFreightOrder(freightOrder).subscribe(perf => {
+            this.addFreightOrderFormGroup.reset();
+            this.toastrService.success('Успешно!');
+        }, err => {
+            this.toastrService.error('Ошибка!');
+            console.log(err);
+        })
     }
 }
