@@ -19,13 +19,13 @@ class CreateFreightOrdersTable extends Migration
             $table->foreign('initial_place_id')
                 ->references('id')
                 ->on('places');
-            $table->timestamp('start_date');
+            $table->timestamp('start_date')->nullable(true);
             $table->unsignedBigInteger('termination_place_id');
             $table->foreign('termination_place_id')
                 ->references('id')
                 ->on('places');
-            $table->timestamp('finish_date');
-            $table->double('distance');
+            $table->timestamp('finish_date')->nullable(true);
+            $table->double('distance')->default(null);
             $table->double('height');
             $table->double('weight');
             $table->double('price');
