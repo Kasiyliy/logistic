@@ -62,6 +62,7 @@ export class AddFreightComponent implements OnInit {
             startDate: [null, [Validators.required]],
             terminationPlace: [null, [Validators.required]],
             finishDate: [null, [Validators.required]],
+            ride_type: [null, [Validators.required]],
             distance: [null, [Validators.required]],
             height: [null, [Validators.required]],
             width: [null, [Validators.required]],

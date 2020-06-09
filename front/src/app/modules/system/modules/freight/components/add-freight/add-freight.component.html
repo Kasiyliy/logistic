@@ -159,7 +159,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label>Тип платы</label>
-                                <select class="form-control" (change)="changeLogicOfPayment($event)">
+                                <select class="form-control" formControlName="ride_type" (change)="changeLogicOfPayment($event)">
                                     <option value="CUSTOM">Собственноручно</option>
                                     <option value="MM3">MM3</option>
                                     <option value="MK">MK</option>
