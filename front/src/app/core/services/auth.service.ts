@@ -7,6 +7,7 @@ import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
 import {User} from '../models/entities/user';
 import {RoleService} from './role.service';
+import {Role} from "../models/entities/role";
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,12 @@ export class AuthService {
   public authorize(tokenResp: LoginApiResponse) {
     localStorage.setItem(this.apiToken, tokenResp.token);
     this.putRole(tokenResp.role);
-    this.router.navigateByUrl('/');
+    if(tokenResp.role == Role.ROLE_DRIVER){
+        this.router.navigateByUrl('/freights/my-freight');
+    }else{
+        this.router.navigateByUrl('/');
+    }
+
   }
 
   public putRole(role) {
