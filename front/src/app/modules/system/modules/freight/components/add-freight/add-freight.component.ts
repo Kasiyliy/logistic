@@ -237,4 +237,44 @@ export class AddFreightComponent implements OnInit {
             console.log(err);
         })
     }
+
+    changeLogicOfPayment(event) {
+        const freightOrder = this.addFreightOrderFormGroup.getRawValue() as any;
+        const weight = freightOrder.weight;
+        const distance = freightOrder.distance;
+
+        const value = event.target.value;
+        switch (value) {
+            case 'MM3': {
+                if (distance < 1000) {
+                    this.addFreightOrderFormGroup.get('priceForDistance').setValue(160)
+                    this.addFreightOrderFormGroup.get('price').setValue(distance * 160)
+                } else {
+                    this.addFreightOrderFormGroup.get('priceForDistance').setValue(180)
+                    this.addFreightOrderFormGroup.get('price').setValue(distance * 180)
+                }
+                break;
+            }
+            case 'MM1/2': {
+                if (weight < 10 && distance < 1000) {
+                    this.addFreightOrderFormGroup.get('priceForDistance').setValue(150)
+                    this.addFreightOrderFormGroup.get('price').setValue(distance * 150)
+                } else {
+                    this.addFreightOrderFormGroup.get('priceForDistance').setValue( 170)
+                    this.addFreightOrderFormGroup.get('price').setValue(distance * 170)
+                }
+                break;
+            }
+            case 'MK': {
+                if (distance < 1000) {
+                    this.addFreightOrderFormGroup.get('priceForDistance').setValue(180)
+                    this.addFreightOrderFormGroup.get('price').setValue(distance * 180)
+                } else {
+                    this.addFreightOrderFormGroup.get('priceForDistance').setValue(200)
+                    this.addFreightOrderFormGroup.get('price').setValue(distance * 200)
+                }
+                break;
+            }
+        }
+    }
 }
