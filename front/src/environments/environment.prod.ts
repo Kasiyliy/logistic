@@ -1,5 +1,5 @@
 export const environment = {
-    apiUrl: 'http://api.rossonero.kz/api',
+    apiUrl: 'https://api.rossonero.kz/api',
     tokenPrefix: 'Bearer ',
     apiToken: 'apiToken',
     production: true,
