@@ -70,6 +70,7 @@ export class AddFreightComponent implements OnInit {
             priceForDistance: [null, [Validators.required]],
             description: [null, [Validators.required]],
             contactInformation: [null, [Validators.required]],
+            is_own: [false, [Validators.required]],
             driverId: [null, [Validators.required]],
             carTypeId: [null, [Validators.required]],
             carSpecific: [null, [Validators.required]],

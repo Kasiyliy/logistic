@@ -19,6 +19,7 @@ class FreightOrder extends Model
         'description',
         'contact_information',
         'car_specific',
+        'is_own',
         'status',
         'real_end_date',
         'driver_user_id',
@@ -38,7 +39,7 @@ class FreightOrder extends Model
     {
         return $this->belongsTo(User::class, 'driver_user_id', 'id');
     }
-    
+
     public function carType()
     {
         return $this->belongsTo(CarType::class, 'car_type_id', 'id');
