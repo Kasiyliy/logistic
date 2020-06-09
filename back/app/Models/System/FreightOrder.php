@@ -19,6 +19,7 @@ class FreightOrder extends Model
         'description',
         'contact_information',
         'car_specific',
+        'ride_type',
         'is_own',
         'status',
         'real_end_date',

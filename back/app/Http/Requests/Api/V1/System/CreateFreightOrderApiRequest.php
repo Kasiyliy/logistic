@@ -25,6 +25,7 @@ class CreateFreightOrderApiRequest extends ApiBaseRequest
             'weight' => ['required'],
             'price' => ['required'],
             'is_own' => ['boolean'],
+            'ride_type' => ['string'],
             'price_for_distance' => ['required'],
             'description' => ['required'],
             'contact_information' => ['required'],
