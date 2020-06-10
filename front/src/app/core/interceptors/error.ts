@@ -5,11 +5,13 @@ import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {ToastrService} from "ngx-toastr";
 import {ErrorCode} from "../models/errors/error-code";
+import {AuthService} from "../services/auth.service";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
   constructor(private router: Router,
+              private authService: AuthService,
               private toastrService: ToastrService) {
   }
 
@@ -17,6 +19,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(catchError(err => {
       if (err.status === 401) {
+        this.authService.logout();
         this.router.navigate(['/auth/login']);
       }
 
